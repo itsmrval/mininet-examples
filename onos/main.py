@@ -4,9 +4,11 @@ from mininet.net import Mininet
 from mininet.node import RemoteController, OVSSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel
+from functools import partial
 
 def run():
-    net = Mininet(controller=RemoteController, switch=OVSSwitch)
+    OVS13 = partial(OVSSwitch, protocols='OpenFlow13')
+    net = Mininet(controller=RemoteController, switch=OVS13)
 
     c0 = net.addController('c0', controller=RemoteController, ip='127.0.0.1', port=6653)
 
