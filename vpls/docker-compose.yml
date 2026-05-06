@@ -1,0 +1,8 @@
+services:
+  onos:
+    image: onosproject/onos
+    container_name: onos
+    ports:
+      - "6653:6653"
+      - "8181:8181"
+      - "8101:8101"
